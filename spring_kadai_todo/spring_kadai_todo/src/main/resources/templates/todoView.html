@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ToDoリスト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto; margin: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    table { border-collapse: collapse; width: 100%; max-width: 900px; }
+    th, td { border: 1px solid #ddd; padding: .6rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .pri-high { font-weight: bold; }
+    .status-done { color: #0b7a0b; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>ToDoリスト</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>優先度</th>
+        <th>状態</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="todo : ${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.priority}"
+            th:classappend="${todo.priority} == '高' ? 'pri-high' : ''"></td>
+        <td th:text="${todo.status}"
+            th:classappend="${todo.status} == '完了' ? 'status-done' : ''"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
