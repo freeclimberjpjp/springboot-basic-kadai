@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ内容の確認</title>
+</head>
+<body>
+    <h1>お問い合わせ内容の確認</h1>
+    <div>
+        <label>お名前：</label>
+        <span th:text="${contactForm.name}"></span>
+    </div>
+    <div>
+        <label>メールアドレス：</label>
+        <span th:text="${contactForm.email}"></span>
+    </div>
+    <div>
+        <label>お問い合わせ内容：</label>
+        <span th:text="${contactForm.message}"></span>
+    </div>
+    <form th:action="@{/form}" method="get">
+        <button type="submit">戻る</button>
+    </form>
+</body>
+</html>
