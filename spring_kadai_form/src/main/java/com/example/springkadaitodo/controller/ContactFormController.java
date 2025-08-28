@@ -33,7 +33,7 @@ public class ContactFormController {
         return "contactFormView";
     }
 
-    @PostMapping("form")
+    @PostMapping("confirm")
     public String submitForm(@Valid @ModelAttribute("contactForm") ContactForm contactForm, BindingResult bindingResult, Model model, HttpSession session) {
         if (bindingResult.hasErrors()) {
             // 入力値とエラー情報をセッションに保存しリダイレクト
